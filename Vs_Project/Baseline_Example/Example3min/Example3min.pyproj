@@ -1,0 +1,147 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>c7a41d93-1148-4927-a722-a84dcedeaecc</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Example3min.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>Example3min</Name>
+    <RootNamespace>Example3min</RootNamespace>
+    <InterpreterId>Global|VisualStudio|TF_Py35</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Example3min.py" />
+    <Compile Include="keraspp-master\ex1_1_simple_exercise.py" />
+    <Compile Include="keraspp-master\ex2_1_ann_mnist_cl.py" />
+    <Compile Include="keraspp-master\ex2_2_ann_rg.py" />
+    <Compile Include="keraspp-master\ex3_1a_dnn_mnist_cl.py" />
+    <Compile Include="keraspp-master\ex3_1_dnn_mnist_cl.py" />
+    <Compile Include="keraspp-master\ex3_2_dnn_cifar10_cl.py" />
+    <Compile Include="keraspp-master\ex4_1_cnn_mnist_cl.py" />
+    <Compile Include="keraspp-master\ex4_2_cnn_cifar10_cl.py" />
+    <Compile Include="keraspp-master\ex5_1_lstm_imdb_cl.py" />
+    <Compile Include="keraspp-master\ex5_2_lstm_airplane.py" />
+    <Compile Include="keraspp-master\ex6_1_ae_fc_mnist_mc.py" />
+    <Compile Include="keraspp-master\ex6_2_ae_conv_mnist_mc.py" />
+    <Compile Include="keraspp-master\ex7_1_gan_dnn_prob.py" />
+    <Compile Include="keraspp-master\ex7_2_gan_cnn_mnist_tf.py" />
+    <Compile Include="keraspp-master\ex8_1_unet_cifar10.py" />
+    <Compile Include="keraspp-master\ex9_1_applications_agumentation.py" />
+    <Compile Include="keraspp-master\ex9_2_pretarined_method.py" />
+    <Compile Include="keraspp-master\ex9_3_advanced_keras.py" />
+    <Compile Include="keraspp-master\ex9_4_1_my_layer.py" />
+    <Compile Include="keraspp-master\ex9_4_2_tfwithkeras.py" />
+    <Compile Include="keraspp-master\keraspp\aicnn.py" />
+    <Compile Include="keraspp-master\keraspp\aigen.py" />
+    <Compile Include="keraspp-master\keraspp\aiprt.py" />
+    <Compile Include="keraspp-master\keraspp\kfunc.py" />
+    <Compile Include="keraspp-master\keraspp\sfile.py" />
+    <Compile Include="keraspp-master\keraspp\skeras.py" />
+    <Compile Include="keraspp-master\keraspp\skeras_kr.py" />
+    <Compile Include="keraspp-master\old\ae_conv_mnist.py" />
+    <Compile Include="keraspp-master\old\ann_mnist_cl copy.py" />
+    <Compile Include="keraspp-master\old\ch4_3_cnn_cifar10.py" />
+    <Compile Include="keraspp-master\old\cnn_mnist_cl_r0.py" />
+    <Compile Include="keraspp-master\old\ex3_1_dnn_mnist_cl_cifar10.py" />
+    <Compile Include="keraspp-master\old\ex4_2a_cnn_cifar10_cl.py" />
+    <Compile Include="keraspp-master\old\ex4_2a_rnn_lstm_airplane.py" />
+    <Compile Include="keraspp-master\old\ex5_1_lstm_mnist_cl.py" />
+    <Compile Include="keraspp-master\old\ex6_1a_ae_fc_mnist_mc.py" />
+    <Compile Include="keraspp-master\old\ex6_2a_ae_conv_mnist_mc.py" />
+    <Compile Include="keraspp-master\old\ex8_1a_unet_cifar10.py" />
+    <Compile Include="keraspp-master\old\ex8_1_unet_cifar10_org.py" />
+    <Compile Include="keraspp-master\old\gan_cnn.py" />
+    <Compile Include="keraspp-master\old\gan_cnn_mnist_org.py" />
+    <Compile Include="keraspp-master\old\gan_cnn_mse.py" />
+    <Compile Include="keraspp-master\old\gan_cnn_mse_tf_r0.py" />
+    <Compile Include="keraspp-master\old\gan_dnn_prob.py" />
+    <Compile Include="keraspp-master\old\main\kpp\ae_conv_mnist_mc.py" />
+    <Compile Include="keraspp-master\old\main\kpp\ann_boston_rg.py" />
+    <Compile Include="keraspp-master\old\main\kpp\ann_mnist_cl.py" />
+    <Compile Include="keraspp-master\old\main\kpp\unet_conv_cifar10rgb_mc.py" />
+    <Compile Include="keraspp-master\old\main\kpp\__init__.py" />
+    <Compile Include="keraspp-master\old\main\main_ann_boston_rg.py" />
+    <Compile Include="keraspp-master\old\__init__.py" />
+    <Compile Include="keraspp-master\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="keraspp-master\" />
+    <Folder Include="keraspp-master\bonus\" />
+    <Folder Include="keraspp-master\keraspp\" />
+    <Folder Include="keraspp-master\old\" />
+    <Folder Include="keraspp-master\old\main\" />
+    <Folder Include="keraspp-master\old\main\kpp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="keraspp-master\.gitignore" />
+    <Content Include="keraspp-master\bonus\bonus_my_layer.ipynb" />
+    <Content Include="keraspp-master\cover.jpg" />
+    <Content Include="keraspp-master\international-airline-passengers.csv" />
+    <Content Include="keraspp-master\LICENSE" />
+    <Content Include="keraspp-master\nb_ex1_1_simple_exercise.ipynb" />
+    <Content Include="keraspp-master\nb_ex2_1_ann_mnist_cl.ipynb" />
+    <Content Include="keraspp-master\nb_ex2_2_ann_rg.ipynb" />
+    <Content Include="keraspp-master\nb_ex3_1_dnn_mnist_cl.ipynb" />
+    <Content Include="keraspp-master\nb_ex3_2_dnn_cifar10_cl.ipynb" />
+    <Content Include="keraspp-master\nb_ex4_1_cnn_mnist_cl.ipynb" />
+    <Content Include="keraspp-master\nb_ex4_2_cnn_cifar10_cl.ipynb" />
+    <Content Include="keraspp-master\nb_ex5_1_lstm_imdb_cl.ipynb" />
+    <Content Include="keraspp-master\nb_ex5_2_lstm_airplane.ipynb" />
+    <Content Include="keraspp-master\nb_ex6_1_ae_fc_mnist_mc.ipynb" />
+    <Content Include="keraspp-master\nb_ex6_2_ae_conv_mnist_mc.ipynb" />
+    <Content Include="keraspp-master\nb_ex7_1_gan_dnn_prob.ipynb" />
+    <Content Include="keraspp-master\nb_ex7_2_gan_cnn_mnist_tf.ipynb" />
+    <Content Include="keraspp-master\nb_ex8_1_unet_cifar10.ipynb" />
+    <Content Include="keraspp-master\nb_ex9_1_applications_agumentation.ipynb" />
+    <Content Include="keraspp-master\nb_ex9_2_pretrained_method.ipynb" />
+    <Content Include="keraspp-master\nb_ex9_3_advanced_keras.ipynb" />
+    <Content Include="keraspp-master\nb_ex9_4_1_my_layer.ipynb" />
+    <Content Include="keraspp-master\nb_ex9_4_2_tfwithkeras.ipynb" />
+    <Content Include="keraspp-master\old\2-2 cnn_minst_cl.ipynb" />
+    <Content Include="keraspp-master\old\2-3 cnn_cifar10_cl %28no dropout%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_00 dnn_cifar10_cl %28no dropout%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_01 dnn_cifar10_cl %28dropout _05 _2%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_02 dnn_cifar10_cl %28dropout _05 _1%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_03 dnn_cifar10_cl %28dropout _05 _05%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_04 dnn_cifar10_cl %28dropout _01 _05%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_05 dnn_cifar10_cl %28dropout _01 _0%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_05 dnn_cifar10_cl %28dropout _01 _01%29.ipynb" />
+    <Content Include="keraspp-master\old\2-3_xx dnn_cifar10_cl %28dropout n m%29.ipynb" />
+    <Content Include="keraspp-master\old\3-2_00 ae_fc_mnist_mc.ipynb" />
+    <Content Include="keraspp-master\old\3-3_00 ae_conv_mnist_mc.ipynb" />
+    <Content Include="keraspp-master\old\5-1 RNN imdb %28step%29-KERASPP STYLE.ipynb" />
+    <Content Include="keraspp-master\old\5-1 RNN imdb %28step%29.ipynb" />
+    <Content Include="keraspp-master\old\5-1 RNN imdb.ipynb" />
+    <Content Include="keraspp-master\old\5-2 IRNN with MNIST.ipynb" />
+    <Content Include="keraspp-master\old\7-2_00 unet_conv_cifar10rgb_mc.ipynb" />
+    <Content Include="keraspp-master\old\7-2_01 unet_conv_cifar10rgb_mc %28in_ch 2%29.ipynb" />
+    <Content Include="keraspp-master\old\8-1_10 CNN1D-GAN for Prob.ipynb" />
+    <Content Include="keraspp-master\old\cifar10-examples.png" />
+    <Content Include="keraspp-master\old\nb_ex4_2_cnn_cifar10 %28old%29.ipynb" />
+    <Content Include="keraspp-master\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|VisualStudio|TF_Py35" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
