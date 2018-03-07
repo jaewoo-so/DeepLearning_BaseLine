@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>e5141128-f217-4e01-82f9-8a94e8018052</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CNN\CNN_mnist.py</StartupFile>
+    <StartupFile>CNN\CNN_CIFAR-10.py</StartupFile>
     <SearchPath>Plotting;DataLoader</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -33,17 +33,32 @@
     <Compile Include="ANN\ANN_Mnist.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Baseline_Example.py" />
     <Compile Include="CNN\CNN_CIFAR-10.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CNN\CNN_mnist.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CommonUtil.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataLoader\DataLib.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataLoader\LocalDataLoader.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DNN\DNN_mnist.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GAN\GAN_CNN.py" />
+    <Compile Include="GAN\GAN_Test1D.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GAN\GAN_Data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GAN\GAN_Machine.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Plotting\PlotWihtHistory.py">
@@ -56,6 +71,7 @@
     <Folder Include="DNN\" />
     <Folder Include="CNN\" />
     <Folder Include="AE\" />
+    <Folder Include="GAN\" />
     <Folder Include="Plotting\" />
   </ItemGroup>
   <ItemGroup>

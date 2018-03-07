@@ -1,10 +1,3 @@
-#########################################################
-# Convolutional layer based AE with MNIST, Models/Class
-#########################################################
-
-###########################
-# AE 모델링
-###########################
 from keras import layers, models
 
 
@@ -17,26 +10,18 @@ class AE(models.Model):
         # Input
         original = layers.Input(shape=org_shape)
 
-        # encoding-1
+        # Encoding
         x = Conv2D(4, (3, 3))(original)
         x = layers.MaxPooling2D((2, 2), padding='same')(x)
-
-        # encoding-2
         x = Conv2D(8, (3, 3))(x)
         x = layers.MaxPooling2D((2, 2), padding='same')(x)
-
-        # encoding-3: encoding output: 7x7 pixels
         z = Conv2D(1, (7, 7))(x)
 
-        # decoding-1
+        # Decoding
         y = Conv2D(16, (3, 3))(z)
         y = layers.UpSampling2D((2, 2))(y)
-
-        # decoding-2
         y = Conv2D(8, (3, 3))(y)
         y = layers.UpSampling2D((2, 2))(y)
-
-        # decoding-3
         y = Conv2D(4, (3, 3))(y)
 
         # decoding & Output
@@ -49,13 +34,8 @@ class AE(models.Model):
 
 from ex4_1_cnn_mnist_cl import DATA
 
-
-
-from keraspp.skeras import plot_loss, plot_acc
+from PlotWihtHistory import Plotting as pltting
 import matplotlib.pyplot as plt
-
-
-
 from keras import backend 
 
 

@@ -14,10 +14,8 @@ import tensorflow as tf
 K.set_image_data_format('channels_first')
 print(K.image_data_format)
 
-################################
-# GAN 모델링
-################################
-from keras import models, layers, optimizers
+from keras import models, layers, optimizers , Input
+from keras.models import Model
 
 
 def mse_4d(y_true, y_pred):
@@ -27,36 +25,42 @@ def mse_4d_tf(y_true, y_pred):
     return tf.reduce_mean(tf.square(y_pred - y_true), axis=(1,2,3))
 
 
-class GAN(models.Sequential):
-    def __init__(self, input_dim=64):
+class GAN():
+    def __init__(self, input_dim=64 , input_shape = (1,28,28)):
         """
         self, self.generator, self.discriminator are all models
         """
         super().__init__()
         self.input_dim = input_dim
+        self.input_shape = input_shape
+        self.gd = models.Sequential()
+        self.generator = self.GENERATOR( self.input_dim )
+        self.discriminator = self.DISCRIMINATOR( self.input_shape )
 
-        self.generator = self.GENERATOR()
-        self.discriminator = self.DISCRIMINATOR()
-        self.add(self.generator)
+        gd_input = Input(shape=(input_dim,))
+        fake_output = self.generator(gd_input) 
         self.discriminator.trainable = False
-        self.add(self.discriminator)
+        gd = self.discriminator(fake_output)
+
+        self.gd = Model(gd_input , gd)
         
         self.compile_all()
+
 
     def compile_all(self):
         # Compiling stage
         d_optim = optimizers.SGD(lr=0.0005, momentum=0.9, nesterov=True)
         g_optim = optimizers.SGD(lr=0.0005, momentum=0.9, nesterov=True)
         self.generator.compile(loss=mse_4d_tf, optimizer="SGD")
-        self.compile(loss='binary_crossentropy', optimizer=g_optim)
+        self.gd.compile(loss='binary_crossentropy', optimizer=g_optim)
         self.discriminator.trainable = True
         self.discriminator.compile(loss='binary_crossentropy', optimizer=d_optim)
 
-    def GENERATOR(self):
-        input_dim = self.input_dim
+    def GENERATOR(self , input_dim):
+        L_input_fake = Input(shape = (input_dim,) )
 
         model = models.Sequential()
-        model.add(layers.Dense(1024, activation='tanh', input_dim=input_dim))
+        model.add(layers.Dense(1024, activation='tanh', input_shape=(input_dim,)))
         model.add(layers.Dense(128 * 7 * 7, activation='tanh'))
         model.add(layers.BatchNormalization())
         model.add(layers.Reshape((128, 7, 7), input_shape=(128 * 7 * 7,)))
@@ -64,19 +68,23 @@ class GAN(models.Sequential):
         model.add(layers.Conv2D(64, (5, 5), padding='same', activation='tanh'))
         model.add(layers.UpSampling2D(size=(2, 2)))
         model.add(layers.Conv2D(1, (5, 5), padding='same', activation='tanh'))
-        return model
+        generator = model(L_input_fake)
 
-    def DISCRIMINATOR(self):
+        return Model(L_input_fake , generator)
+
+    def DISCRIMINATOR(self , input_shape):
+
+        L_input_Real = Input(shape = input_shape)
         model = models.Sequential()
         model.add(layers.Conv2D(64, (5, 5), padding='same', activation='tanh',
-                                input_shape=(1, 28, 28)))
+                                input_shape=input_shape))
         model.add(layers.MaxPooling2D(pool_size=(2, 2)))
         model.add(layers.Conv2D(128, (5, 5), activation='tanh'))
         model.add(layers.MaxPooling2D(pool_size=(2, 2)))
         model.add(layers.Flatten())
         model.add(layers.Dense(1024, activation='tanh'))
         model.add(layers.Dense(1, activation='sigmoid'))
-        return model
+        return Model(L_input_Real , model(L_input_Real) )
 
     def get_z(self, ln):
         input_dim = self.input_dim

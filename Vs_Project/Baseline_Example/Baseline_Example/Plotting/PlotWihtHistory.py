@@ -11,7 +11,7 @@ class Plotting():
         plt.ylabel('Accuracy')
         plt.xlabel('Epoch')
         plt.legend(['Training', 'Verification'], loc=0)
-        plt.show()
+        #plt.show()
 
 
     def plot_loss(self,history, title="Loss"):
@@ -25,5 +25,5 @@ class Plotting():
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
         plt.legend(['Training', 'Verification'], loc=0)
-        plt.show()
+        #plt.show()
 

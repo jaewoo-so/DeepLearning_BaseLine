@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c7a41d93-1148-4927-a722-a84dcedeaecc</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Example3min.py</StartupFile>
+    <StartupFile>keraspp-master\ex7_2_gan_cnn_mnist_tf.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

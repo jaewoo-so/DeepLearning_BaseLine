@@ -103,7 +103,7 @@ class Machine:
         data_stddev = 1.25
 
         self.n_iter_D = 1
-        self.n_iter_G = 5
+        self.n_iter_G = 1
 
         self.data = Data(data_mean, data_stddev, ni_D)
         self.gan = GAN(ni_D=ni_D, nh_D=50, nh_G=50)
@@ -226,7 +226,7 @@ class Machine_Pure(Machine):
 
 def main():
     machine = Machine(n_batch=1, ni_D=100)
-    machine.run(n_repeat=200, n_show=200, n_test=100)
+    machine.run(n_repeat=70000, n_show=10000, n_test=100)
 
 
 if __name__ == '__main__':

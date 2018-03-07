@@ -4,6 +4,9 @@ from keras.utils import np_utils  # to_categorical
 from sklearn import preprocessing 
 from keras import utils as kUtil
 from keras import backend as K
+from sklearn import model_selection
+from sklearn.preprocessing import MinMaxScaler
+import os
 
 class DataGenerator():
     def Load_mnist(self):
@@ -32,19 +35,6 @@ class DataGenerator():
 
 
 class DataGenerator_2D():
-    def add_channels(self):
-        X = self.X
-
-        if len(X.shape) == 3: # if Gray Scale (1 channel), X.Shape = (N,row,col). need to convert (Xmrow,col,1)
-            N , img_rows , img_cols = X.shape
-            X = X.reshape(X.shape[0],img_rows , img_cols ,1 )
-            input_shape = (img_rows,img_cols,1)
-        else:
-            input_shape = X.shape[1:]
-        self.X = X
-        self.input_shape = input_shape
-            
-
     def Load_mnist(self):
         num_classes = 10
 
@@ -76,7 +66,55 @@ class DataGenerator_2D():
         #self.xTest , self.yTest = xTest , yTest
         return CatergoricalDataInfo_splited(input_shape , num_classes , xTrain , yTrain , xTest , yTest)
 
+class Data2DMaker():
+    def __init__(self, X , y   , nb_classes , scaling = True , test_size = 0.2 , random_state = 0):
+        self.X = X
+        self.add_channels()
+        X = self.X
+        xTrain, xTest ,yTrain, yTest = model_selection.train_test_split(
+                                                X , y , 
+                                                test_size = test_size , 
+                                                random_state = random_state)
+        xTrain = xTrain.astype('float32')
+        xTest = xTest.astype('float32')
+
+        if scaling:
+            scaler = MinMaxScaler()
+            n = xTrain.shape[0]
+            xTrain = scaler.fit_transform(xTrain.reshape(n,-1)) \
+                           .reshape(xTrain.shape)
+
+            n = xTest.shape[0]
+            xTest = scaler.fit_transform(xTest.reshape(n,-1))\
+                          .reshape(xTest.shape)
+
+            self.scaler = scaler
+
+        yTrain_c = np_utils.to_categorical(yTrain,nb_classes)
+        yTest_c  = np_utils.to_categorical(yTest,nb_classes)
+
+        self.xTrain , self.yTrain = xTrain , yTrain
+        self.xTest , self.yTest = xTest , yTest
+        self.yTrain_c , self.yTest_c = yTrain_c , yTest_c
+
+
+
+
+    def add_channels(self):
+        X = self.X
+        if len(X.shape) == 3: # if Gray Scale (1 channel), X.Shape = (N,row,col). need to convert (Xmrow,col,1)
+            N , img_rows , img_cols = X.shape
+            X = X.reshape(X.shape[0],img_rows , img_cols ,1 )
+            input_shape = (img_rows,img_cols,1)
+        else:
+            input_shape = X.shape[1:]
+        self.X = X
+        self.input_shape = input_shape
+
+
     def Load_CIFAR10(self):
+
+        
         (xTrain, yTrain), (xTest, yTest) = datasets.boston_housing.load_data()
 
 

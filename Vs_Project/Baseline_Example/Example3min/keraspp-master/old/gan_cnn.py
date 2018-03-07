@@ -35,7 +35,7 @@ class GAN(models.Sequential):
         self.compile_all()
 
     def compile_all(self):
-        # Compiling stage
+        # Compiling stage xzc ngvcfxhyjg
         d_optim = optimizers.SGD(lr=0.0005, momentum=0.9, nesterov=True)
         g_optim = optimizers.SGD(lr=0.0005, momentum=0.9, nesterov=True)
         self.generator.compile(loss='binary_crossentropy', optimizer="SGD")
