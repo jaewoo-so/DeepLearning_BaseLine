@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>e5141128-f217-4e01-82f9-8a94e8018052</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CNN\CNN_CIFAR-10.py</StartupFile>
+    <StartupFile>Yolo\Test.py</StartupFile>
     <SearchPath>Plotting;DataLoader</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -64,6 +64,9 @@
     <Compile Include="Plotting\PlotWihtHistory.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Yolo\Test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ANN\" />
@@ -72,6 +75,7 @@
     <Folder Include="CNN\" />
     <Folder Include="AE\" />
     <Folder Include="GAN\" />
+    <Folder Include="Yolo\" />
     <Folder Include="Plotting\" />
   </ItemGroup>
   <ItemGroup>
